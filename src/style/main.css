@@ -5,3 +5,240 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+
+body {
+	background-color: #f6f6f6;
+	font-size: 16px;
+	overflow-x: hidden;
+}
+
+.section-title-gradient {
+	background: linear-gradient(90.01deg, #111111 -8.85%, #b1b1b1 58.84%, #696969 91.39%, #b1b1b1 116.12%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* ----------------------------------------------------- */
+
+.welcome-section__bottles-image {
+	width: 100%;
+	height: auto;
+}
+
+.welcome-section__first-bottles-vector-image,
+.welcome-section__second-bottles-vector-image,
+.welcome-section__first-bg-vector-image,
+.welcome-section__second-bg-vector-image,
+.welcome-section__third-bg-vector-image {
+	position: absolute;
+	z-index: -10;
+}
+
+.welcome-section__first-bottles-vector-image {
+	top: 40%;
+	right: 29%;
+	height: 40%;
+	transform: rotate(12deg);
+}
+
+.welcome-section__second-bottles-vector-image {
+	height: 35%;
+	top: 60%;
+	left: 29%;
+}
+
+.welcome-section__first-bg-vector-image {
+	right: 0;
+	bottom: 0;
+}
+
+.welcome-section__second-bg-vector-image {
+	display: none;
+	left: 6%;
+	bottom: -55%;
+	transform: rotate(15deg);
+}
+
+.welcome-section__third-bg-vector-image {
+	display: none;
+	right: 0;
+	bottom: -45%;
+}
+
+.welcome-section {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+	padding-top: 80px;
+}
+
+.welcome-section__wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.welcome-section__image-container {
+	padding-top: 2.5rem;
+	max-width: 1000px;
+	margin-left: 10px;
+}
+
+.welcome-section__image-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.welcome-section__text-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.welcome-section__title {
+	padding: 1rem;
+	font-weight: 600;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	text-transform: uppercase;
+}
+
+.welcome-section__special-span {
+	color: #dc2626;
+}
+
+.welcome-section__subtitle {
+	padding: 0.5rem;
+	font-size: 1.3rem;
+	line-height: 1.75rem;
+	font-weight: 600;
+	background: linear-gradient(90.01deg, #111111 -8.85%, #b1b1b1 116.12%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.welcome-section__text-description {
+	padding: 0.5rem;
+	font-size: 1.1rem;
+}
+
+.welcome-section__buy-button {
+	margin: 2rem;
+	padding: 0.5rem 2rem;
+	background-color: #30ab4c;
+	color: white;
+	font-size: 1rem;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.welcome-section__buy-button:hover {
+	background-color: #217735;
+}
+
+@media screen and (min-width: 768px) {
+	.welcome-section {
+		padding-top: 120px;
+	}
+
+	.welcome-section__title {
+		font-size: 1.875rem;
+		line-height: 2.25rem;
+	}
+
+	.welcome-section__text-description {
+		padding: 0.5rem 5rem;
+	}
+
+	.welcome-section__buy-button {
+		padding: 0.75rem 4rem;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.welcome-section__wrapper {
+		justify-content: space-between;
+		flex-direction: row;
+	}
+
+	.welcome-section__image-container {
+		padding-top: 0;
+		max-width: 600px;
+	}
+
+	.welcome-section__text-container {
+		padding-right: 5rem;
+		align-items: start;
+		text-align: left;
+	}
+
+	.welcome-section__title {
+		padding: 0;
+		padding-bottom: 2rem;
+		font-size: 2.25rem;
+		line-height: 2.5rem;
+	}
+
+	.welcome-section__subtitle {
+		padding: 0.5rem 0;
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+
+	.welcome-section__text-description {
+		padding: 0.5rem 2.5rem 0.5rem 0;
+		line-height: 24px;
+	}
+
+	.welcome-section__buy-button {
+		margin: 1rem 0;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.welcome-section__image-container {
+		max-width: 800px;
+	}
+}
+
+@media screen and (min-width: 1536px) {
+	.welcome-section__image-container {
+		margin-left: 2.5rem;
+		max-width: 1000px;
+	}
+
+	.welcome-section__title {
+		font-size: 3.75rem;
+		line-height: 1;
+	}
+
+	.welcome-section__text-description {
+		padding: 0.5rem 12rem 0.5rem 0;
+	}
+
+	.welcome-section__second-bg-vector-image,
+	.welcome-section__third-bg-vector-image {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 1726px) {
+	.welcome-section__image-container {
+		margin-left: 5rem;
+	}
+
+	.welcome-section__subtitle {
+		font-size: 1.875rem;
+		line-height: 2.25rem;
+	}
+}
+
+/* ---------------------------------------------------- */
