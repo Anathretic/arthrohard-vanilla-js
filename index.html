@@ -10,10 +10,40 @@
     <meta name="keywords"
         content="arthrohard, suplementy stawów dla kotów, suplementy stawów dla psów, zdrowe stawy pupila, naturalne suplementy, ruchliwość zwierząt, zdrowy pies, zdrowy kot, suplementacja dla kotów i psów">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <script src="https://kit.fontawesome.com/e3d334fd4a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="dist/css/main.min.css">
 </head>
 
-<body>
+<body class="main-page">
+    <header>
+        <div class="nav">
+            <div class="nav__logo-container" onclick="handleLogo()">
+                <div class="nav__logo">
+                    <h2>arthro<span>hard</span></h2>
+                </div>
+            </div>
+            <nav class="nav__desktop">
+                <ul class="nav__desktop-items">
+                    <li class="nav__desktop-item"><a href="#co-nas-wyroznia">co nas wyróżnia</a></li>
+                    <li class="nav__desktop-item"><a href="#sklad">skład</a></li>
+                    <li class="nav__desktop-item"><a href="#produkty">produkty</a></li>
+                </ul>
+            </nav>
+            <nav class="nav__mobile">
+                <div class="nav__mobile-menu-icon" id="menuIcon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav__mobile-items">
+                    <li class="nav__close-icon" onclick="toggleMenu()"><i class="fas fa-times"></i></li>
+                    <li class="nav__mobile-item"><a href="#co-nas-wyroznia" onclick="toggleMenu()">co nas
+                            wyróżnia</a>
+                    </li>
+                    <li class="nav__mobile-item"><a href="#sklad" onclick="toggleMenu()">skład</a></li>
+                    <li class="nav__mobile-item"><a href="#produkty" onclick="toggleMenu()">produkty</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
     <main>
         <section class="welcome-section">
             <div class="welcome-section__wrapper">
@@ -51,7 +81,7 @@
             <img src="dist/img/welcome-section/third-bg-vector-image.svg" alt="Grafika upiększająca sekcję"
                 class="welcome-section__third-bg-vector-image">
         </section>
-        <section id="co-nas-wyroznia" class="what-sets-us-apart-section">
+        <section id="co-nas-wyroznia" class="what-sets-us-apart-section section">
             <div class="what-sets-us-apart-section__wrapper">
                 <h3 class="what-sets-us-apart-section__title section-title-gradient">Co wyróżnia nasz preparat</h3>
                 <div class="what-sets-us-apart-section__title-highlight"></div>
@@ -93,7 +123,8 @@
                                 Zmieszany z karmą
                             </p>
                         </div>
-                        <div class="what-sets-us-apart-section__image-container what-sets-us-apart-section__image-container--special">
+                        <div
+                            class="what-sets-us-apart-section__image-container what-sets-us-apart-section__image-container--special">
                             <img src="dist/img/what-sets-us-apart-section/second-container-image-1.png"
                                 alt="Obraz przedstawiający głaskanego pieska"
                                 class="what-sets-us-apart-section__second-container-image-1">
@@ -133,6 +164,8 @@
                 </div>
             </div>
         </section>
+        <section class="section" id="sklad" style="min-height: 100vh;"></section>
+        <section class="section" id="produkty" style="min-height: 100vh;"></section>
     </main>
     <script src="dist/js/main.min.js"></script>
 </body>
