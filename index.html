@@ -268,7 +268,36 @@
                 </div>
             </div>
         </section>
-        <section class="section" id="produkty" style="min-height: 100vh;"></section>
+        <section class="products section" id="produkty">
+            <div class="products__wrapper">
+                <div class="products__select-box">
+                    <span>liczba produktów na stronie</span>
+                    <select class="products__select" id="productSelect">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+                <div class="products__list">
+                    <div class="products__list-container" id="productsContainer">
+                        <p id="error">Niestety wystąpił błąd..</p>
+                    </div>
+                </div>
+            </div>
+            <div id="popupContainer" class="products__popup-wrapper" style="display: none;">
+                <div class="products__popup" id="popupContent">
+                    <h6 id="popupId"></h6>
+                    <p class="products__popup-name">
+                        Nazwa: <span class="font-normal" id="popupName"></span>
+                    </p>
+                    <p class="products__popup-value">
+                        Wartość: <span class="font-normal" id="popupValue"></span>
+                    </p>
+                    <button class="products__popup-close-btn" id="closePopup">X</button>
+                </div>
+            </div>
+        </section>
     </main>
     <script src="dist/js/main.min.js"></script>
 </body>
