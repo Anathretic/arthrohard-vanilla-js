@@ -1,7 +1,24 @@
-const mobileNav = document.querySelector('.nav__mobile-items');
+//---------------------------------------------------------------------------------------------
+// Selectors
+//---------------------------------------------------------------------------------------------
 
+const mobileNav = document.querySelector('.nav__mobile-items');
 const menuItems = document.querySelectorAll('.nav__desktop-item a');
 const scrollSpySections = document.querySelectorAll('.section');
+
+const productsContainer = document.getElementById('productsContainer');
+const productSelect = document.getElementById('productSelect');
+const errorElement = document.getElementById('error');
+const popupContainer = document.getElementById('popupContainer');
+const popupContent = document.getElementById('popupContent');
+const popupId = document.getElementById('popupId');
+const popupName = document.getElementById('popupName');
+const popupValue = document.getElementById('popupValue');
+const closePopupButton = document.getElementById('closePopup');
+
+//---------------------------------------------------------------------------------------------
+// Navigation
+//---------------------------------------------------------------------------------------------
 
 const handleLogo = () => {
 	window.location.href = '#';
@@ -33,33 +50,35 @@ const handleScrollSpy = () => {
 const navHeight = document.querySelector('.nav__desktop').offsetHeight;
 document.documentElement.style.setProperty('--scroll-padding', navHeight - 1 + 'px');
 
-window.addEventListener('scroll', handleScrollSpy);
-
+//---------------------------------------------------------------------------------------------
+// Products List
 //---------------------------------------------------------------------------------------------
 
 const URL = 'https://brandstestowy.smallhost.pl/api/';
+
 let productArrayValue = 8;
 let isVisible = false;
 let selectedItem = null;
 
-const productsContainer = document.getElementById('productsContainer');
-const productSelect = document.getElementById('productSelect');
-const errorElement = document.getElementById('error');
-const popupContainer = document.getElementById('popupContainer');
-const popupContent = document.getElementById('popupContent');
-const popupId = document.getElementById('popupId');
-const popupName = document.getElementById('popupName');
-const popupValue = document.getElementById('popupValue');
-const closePopupButton = document.getElementById('closePopup');
-
-productSelect.addEventListener('change', e => {
-	productArrayValue = Number(e.currentTarget.value);
-	fetchProducts();
-});
-
-closePopupButton.addEventListener('click', () => {
-	popupContainer.style.display = 'none';
-});
+const fetchProducts = () => {
+	fetch(`${URL}random?pageNumber=1&pageSize=${productArrayValue}`)
+		.then(res => res.json())
+		.then(products => {
+			if (products && products.data) {
+				productsContainer.innerHTML = '';
+				products.data.forEach(item => {
+					const productElement = document.createElement('div');
+					productElement.className = 'product__item';
+					productElement.innerHTML = `<p class='product__item-text'>ID: ${item.id}</p>`;
+					productElement.addEventListener('click', () => handleClick(item));
+					productsContainer.appendChild(productElement);
+				});
+			}
+		})
+		.catch(() => {
+			errorElement.style.display = 'block';
+		});
+};
 
 const onScroll = () => {
 	const scrolledTo = window.scrollY + window.innerHeight;
@@ -68,8 +87,6 @@ const onScroll = () => {
 		fetchProducts();
 	}
 };
-
-window.addEventListener('scroll', onScroll);
 
 const observer = new IntersectionObserver(
 	entries => {
@@ -88,26 +105,6 @@ const observer = new IntersectionObserver(
 
 observer.observe(document.getElementById('produkty'));
 
-const fetchProducts = () => {
-	fetch(`${URL}random?pageNumber=1&pageSize=${productArrayValue}`)
-		.then(response => response.json())
-		.then(data => {
-			if (data && data.data) {
-				productsContainer.innerHTML = '';
-				data.data.forEach(item => {
-					const productElement = document.createElement('div');
-					productElement.className = 'product__item';
-					productElement.innerHTML = `<p class='product__item-text'>ID: ${item.id}</p>`;
-					productElement.addEventListener('click', () => handleClick(item));
-					productsContainer.appendChild(productElement);
-				});
-			}
-		})
-		.catch(() => {
-			errorElement.style.display = 'block';
-		});
-};
-
 const handleClick = item => {
 	selectedItem = item;
 	popupId.textContent = `ID ${item.id}`;
@@ -115,3 +112,21 @@ const handleClick = item => {
 	popupValue.textContent = item.value;
 	popupContainer.style.display = 'flex';
 };
+
+productSelect.addEventListener('change', e => {
+	productArrayValue = Number(e.currentTarget.value);
+	fetchProducts();
+});
+
+closePopupButton.addEventListener('click', () => {
+	popupContainer.style.display = 'none';
+});
+
+//---------------------------------------------------------------------------------------------
+// Shared Listeners
+//---------------------------------------------------------------------------------------------
+
+window.addEventListener('scroll', () => {
+	onScroll();
+	handleScrollSpy();
+});
