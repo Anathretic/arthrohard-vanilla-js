@@ -130,3 +130,8 @@ window.addEventListener('scroll', () => {
 	onScroll();
 	handleScrollSpy();
 });
+
+window.addEventListener('touchmove', () => {
+	onScroll();
+	handleScrollSpy();
+});
