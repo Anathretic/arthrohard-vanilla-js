@@ -1,3 +1,5 @@
+/* Reset */
+
 *,
 ::after,
 ::before {
@@ -5,6 +7,8 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+
+/* Globals */
 
 html {
 	scroll-behavior: smooth;
@@ -33,18 +37,18 @@ section {
 /* Navbar */
 
 .nav {
-	display: flex;
 	position: fixed;
-	top: 0;
-	z-index: 10;
-	padding: 1rem 0;
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 1rem 0;
+	top: 0;
+	height: 80px;
 	width: 100%;
-	letter-spacing: 0.1em;
 	background-color: #ffffff;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	height: 80px;
+	letter-spacing: 0.1em;
+	z-index: 10;
 }
 
 .nav__logo-container {
@@ -78,20 +82,20 @@ section {
 
 .nav__desktop-items {
 	display: flex;
-	flex-direction: row;
 	flex: 0 1 auto;
 	justify-content: space-between;
 	align-items: center;
-	list-style-type: none;
+	flex-direction: row;
 	color: #000000;
+	list-style-type: none;
 }
 
 .nav__desktop-item {
-	z-index: 10;
 	margin: 0 0.5rem;
 	text-align: center;
 	text-transform: uppercase;
 	cursor: pointer;
+	z-index: 10;
 }
 
 .nav__desktop-item a {
@@ -112,22 +116,22 @@ section {
 }
 
 .nav__mobile-items {
-	display: flex;
 	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 20;
-	padding: 0.75rem;
-	flex-direction: column;
+	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	border-radius: 0.375rem;
+	flex-direction: column;
+	padding: 0.75rem;
+	top: 0;
+	right: 0;
+	width: 70vw;
 	height: 100vh;
-	list-style-type: none;
+	border-radius: 0.375rem;
 	color: #ffffff;
 	background-color: #000000;
 	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-	width: 70vw;
+	list-style-type: none;
+	z-index: 20;
 
 	transition: transform 0.7s, opacity 0.7s;
 	transform: translateX(100%);
@@ -147,12 +151,11 @@ section {
 }
 
 .nav__mobile-item a {
-	text-decoration: none;
 	color: white;
+	text-decoration: none;
 }
 
 .nav__close-icon {
-	font-size: 28px;
 	margin: 0.5rem 0;
 	align-self: flex-start;
 	font-size: 1.25rem;
@@ -274,9 +277,9 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding-top: 80px;
 	width: 100%;
 	min-height: 100vh;
-	padding-top: 80px;
 }
 
 .welcome-section__wrapper {
@@ -339,8 +342,8 @@ section {
 	color: white;
 	font-size: 1rem;
 	border: none;
-	cursor: pointer;
 	transition: background-color 0.3s;
+	cursor: pointer;
 }
 
 .welcome-section__buy-button:hover {
@@ -530,11 +533,11 @@ section {
 
 .what-sets-us-apart-section__title {
 	padding: 3rem 0 0.5rem;
+	height: 100%;
 	font-size: 1.5rem;
 	line-height: 2rem;
 	text-align: center;
 	font-weight: 600;
-	height: 100%;
 }
 
 .what-sets-us-apart-section__title-highlight,
@@ -621,8 +624,8 @@ section {
 .what-sets-us-apart-section__first-container-image,
 .what-sets-us-apart-section__third-container-image,
 .what-sets-us-apart-section__image-container--special {
-	width: 95%;
 	padding-bottom: 1rem;
+	width: 95%;
 	border-bottom: 1px solid transparent;
 	transition: border-bottom 0.3s;
 }
@@ -821,24 +824,33 @@ section {
 
 .composition__container {
 	display: flex;
-	padding-top: 4rem;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	padding-top: 4rem;
 	width: 100%;
 	text-align: center;
 }
 
-.composition__box--first {
+.composition__box--first,
+.composition__box--second,
+.composition__box--third,
+.composition__box--fourth,
+.composition__box--fifth,
+.composition__box--sixth {
 	display: flex;
-	padding-bottom: 3rem;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+	padding-bottom: 3rem;
 	max-width: 400px;
 }
 
-.composition__box--first h5 {
+.composition__box--first h5,
+.composition__box--second h5,
+.composition__box--third h5,
+.composition__box--fifth h5,
+.composition__box--sixth h5 {
 	padding-top: 1.25rem;
 	padding-bottom: 1.25rem;
 	font-size: 1.25rem;
@@ -846,61 +858,21 @@ section {
 	font-weight: 600;
 }
 
-.composition__box--first span {
+.composition__box--first span,
+.composition__box--second span,
+.composition__box--third span,
+.composition__box--fourth span,
+.composition__box--fifth span,
+.composition__box--sixth span {
 	padding-bottom: 1rem;
 }
 
-.composition__box--first p {
-	padding: 0 0.5rem;
-}
-
-.composition__box--second {
-	display: flex;
-	padding-bottom: 3rem;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	max-width: 400px;
-}
-
-.composition__box--second h5 {
-	padding-top: 1.25rem;
-	padding-bottom: 1.25rem;
-	font-size: 1.25rem;
-	line-height: 1.75rem;
-	font-weight: 600;
-}
-
-.composition__box--second p {
-	padding: 0 0.5rem;
-}
-
-.composition__box--second span {
-	padding-bottom: 1rem;
-}
-
-.composition__box--third {
-	display: flex;
-	padding-bottom: 3rem;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	max-width: 400px;
-}
-
-.composition__box--third h5 {
-	padding-top: 1.25rem;
-	padding-bottom: 1.25rem;
-	font-size: 1.25rem;
-	line-height: 1.75rem;
-	font-weight: 600;
-}
-
-.composition__box--third span {
-	padding-bottom: 1rem;
-}
-
-.composition__box--third p {
+.composition__box--first p,
+.composition__box--second p,
+.composition__box--third p,
+.composition__box--fourth p,
+.composition__box--fifth p,
+.composition__box--sixth p {
 	padding: 0 0.5rem;
 }
 
@@ -913,19 +885,10 @@ section {
 	margin: 1rem 0;
 	color: #ffffff;
 	background-color: #ad4844;
+	font-size: 17px;
 	border: none;
 	transition: background-color 0.3s;
 	cursor: pointer;
-	font-size: 17px;
-}
-
-.composition__box--fourth {
-	display: flex;
-	padding-bottom: 3rem;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	max-width: 400px;
 }
 
 .composition__box--fourth h5 {
@@ -933,64 +896,6 @@ section {
 	font-size: 1.25rem;
 	line-height: 1.75rem;
 	font-weight: 600;
-}
-
-.composition__box--fourth span {
-	padding-bottom: 1rem;
-}
-
-.composition__box--fourth p {
-	padding: 0 0.5rem;
-}
-
-.composition__box--fifth {
-	display: flex;
-	padding-bottom: 3rem;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	max-width: 400px;
-}
-
-.composition__box--fifth h5 {
-	padding-top: 1.25rem;
-	padding-bottom: 1.25rem;
-	font-size: 1.25rem;
-	line-height: 1.75rem;
-	font-weight: 600;
-}
-
-.composition__box--fifth span {
-	padding-bottom: 1rem;
-}
-
-.composition__box--fifth p {
-	padding: 0 0.5rem;
-}
-
-.composition__box--sixth {
-	display: flex;
-	padding-bottom: 3rem;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	max-width: 400px;
-}
-
-.composition__box--sixth h5 {
-	padding-top: 1.25rem;
-	padding-bottom: 1.25rem;
-	font-size: 1.25rem;
-	line-height: 1.75rem;
-	font-weight: 600;
-}
-
-.composition__box--sixth span {
-	padding-bottom: 1rem;
-}
-
-.composition__box--sixth p {
-	padding: 0 0.5rem;
 }
 
 .composition__dog-image-container {
@@ -1010,8 +915,8 @@ section {
 	margin: 2rem;
 	color: #ffffff;
 	background-color: #ad4844;
-	transition: background-color 0.3s;
 	border: none;
+	transition: background-color 0.3s;
 }
 
 @media screen and (max-width: 500px) {
@@ -1032,26 +937,11 @@ section {
 }
 
 @media (max-width: 1024px) {
-	.composition__box--first {
-		padding: 0 1rem 3rem;
-	}
-
-	.composition__box--second {
-		padding: 0 1rem 3rem;
-	}
-
-	.composition__box--third {
-		padding: 0 1rem 3rem;
-	}
-
-	.composition__box--fourth {
-		padding: 0 1rem 3rem;
-	}
-
-	.composition__box--fifth {
-		padding: 0 1rem 3rem;
-	}
-
+	.composition__box--first,
+	.composition__box--second,
+	.composition__box--third,
+	.composition__box--fourth,
+	.composition__box--fifth,
 	.composition__box--sixth {
 		padding: 0 1rem 3rem;
 	}
@@ -1095,7 +985,12 @@ section {
 		justify-content: space-between;
 	}
 
-	.composition__box--first h5 {
+	.composition__box--first h5,
+	.composition__box--second h5,
+	.composition__box--third h5,
+	.composition__box--fourth h5,
+	.composition__box--fifth h5,
+	.composition__box--sixth h5 {
 		font-size: 1.5rem;
 		line-height: 2rem;
 	}
@@ -1104,18 +999,8 @@ section {
 		padding-top: 1.5rem;
 	}
 
-	.composition__box--second h5 {
-		font-size: 1.5rem;
-		line-height: 2rem;
-	}
-
 	.composition__box--second p {
 		padding: 0 2rem;
-	}
-
-	.composition__box--third h5 {
-		font-size: 1.5rem;
-		line-height: 2rem;
 	}
 
 	.composition__bottle-image-button:hover {
@@ -1126,11 +1011,6 @@ section {
 		padding-bottom: 6rem;
 	}
 
-	.composition__box--fourth h5 {
-		font-size: 1.5rem;
-		line-height: 2rem;
-	}
-
 	.composition__box--fourth p {
 		padding: 0.25rem 0.5rem;
 	}
@@ -1139,18 +1019,8 @@ section {
 		padding: 0.5rem 1rem 4rem;
 	}
 
-	.composition__box--fifth h5 {
-		font-size: 1.5rem;
-		line-height: 2rem;
-	}
-
 	.composition__box--fifth img {
 		padding-bottom: 10px;
-	}
-
-	.composition__box--sixth h5 {
-		font-size: 1.5rem;
-		line-height: 2rem;
 	}
 
 	.composition__dog-image-container {
@@ -1282,8 +1152,8 @@ section {
 
 .products__select-box {
 	display: flex;
-	padding-top: 3rem;
 	flex-direction: column;
+	padding-top: 3rem;
 }
 
 .products__select-box span {
@@ -1313,19 +1183,19 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 5rem 0;
 	flex-wrap: wrap;
+	padding: 5rem 0;
 }
 
 .product__item {
 	display: flex;
-	margin: 1rem;
 	justify-content: center;
 	align-items: center;
-	cursor: pointer;
+	margin: 1rem;
 	width: 220px;
 	height: 220px;
 	background: #bebebe;
+	cursor: pointer;
 }
 
 .product__item-text {
@@ -1339,25 +1209,25 @@ section {
 }
 
 .products__popup-wrapper {
-	display: flex;
 	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 10;
-	justify-content: center;
-	align-items: center;
 	background-color: #00000080;
+	z-index: 10;
 }
 
 .products__popup {
 	position: relative;
 	padding: 1rem;
-	border-radius: 0.25rem;
 	width: 83%;
-	background-color: #ffffff;
 	max-width: 790px;
+	background-color: #ffffff;
+	border-radius: 0.25rem;
 }
 
 .products__popup h6 {
@@ -1391,9 +1261,9 @@ section {
 
 .products__popup-close-btn {
 	position: absolute;
+	padding: 0.5rem 1rem;
 	top: 0.5rem;
 	right: 0.5rem;
-	padding: 0.5rem 1rem;
 	font-size: 1.125rem;
 	line-height: 1.75rem;
 	font-weight: 600;
