@@ -58,10 +58,11 @@ const URL = 'https://brandstestowy.smallhost.pl/api/';
 
 let productArrayValue = 8;
 let isVisible = false;
+let isScrolled = false;
 let selectedItem = null;
 
 const fetchProducts = () => {
-	fetch(`${URL}random?pageNumber=1&pageSize=${productArrayValue}`)
+	const dataFetch = fetch(`${URL}random?pageNumber=1&pageSize=${productArrayValue}`)
 		.then(res => res.json())
 		.then(products => {
 			if (products && products.data) {
@@ -78,13 +79,17 @@ const fetchProducts = () => {
 		.catch(() => {
 			errorElement.style.display = 'block';
 		});
+
+	return dataFetch;
 };
 
 const onScroll = () => {
 	const scrolledTo = window.scrollY + window.innerHeight;
-	if (document.body.scrollHeight === scrolledTo) {
+
+	if (document.body.scrollHeight <= scrolledTo + 1 && !isScrolled) {
+		isScrolled = true;
 		productArrayValue += 12;
-		fetchProducts();
+		fetchProducts().finally(() => (isScrolled = false));
 	}
 };
 
@@ -129,9 +134,26 @@ closePopupButton.addEventListener('click', () => {
 window.addEventListener('scroll', () => {
 	onScroll();
 	handleScrollSpy();
+
+	setTimeout(() => {
+		isScrolled = false;
+	}, 200);
 });
 
 window.addEventListener('touchmove', () => {
 	onScroll();
 	handleScrollSpy();
+
+	setTimeout(() => {
+		isScrolled = false;
+	}, 200);
+});
+
+window.addEventListener('touchend', () => {
+	onScroll();
+	handleScrollSpy();
+
+	setTimeout(() => {
+		isScrolled = false;
+	}, 200);
 });
