@@ -9,5 +9,3 @@ This is a second version of recruitment task for one of the companies I applied 
 ## Links & Tools
 
 **Used:** HTML, CSS, JavaScript
-
-**URL:** [Arthrohard](https://testxyz.online/)
